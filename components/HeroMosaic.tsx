@@ -5,9 +5,15 @@ import { SYNERGIA_GRID } from '../constants';
 import { ChevronDown, Sparkles, Zap } from 'lucide-react';
 
 const HeroMosaic: React.FC = () => {
-  const { scrollYProgress } = useScroll();
   const [phase, setPhase] = useState<'dump' | 'collecting' | 'formed'>('dump');
   const [isMobile, setIsMobile] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const smoothScroll = useSpring(scrollYProgress, { stiffness: 40, damping: 20 });
+  
+  const gridScale = useTransform(smoothScroll, [0, 0.4], [1, isMobile ? 6 : 4.5]);
+  const gridRotateX = useTransform(smoothScroll, [0, 0.3], [0, 15]);
+  const gridOpacity = useTransform(smoothScroll, [0.1, 0.45], [1, 0]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -23,12 +29,6 @@ const HeroMosaic: React.FC = () => {
       clearTimeout(formTimer);
     };
   }, []);
-
-  const smoothScroll = useSpring(scrollYProgress, { stiffness: 40, damping: 20 });
-  
-  const gridScale = useTransform(smoothScroll, [0, 0.4], [1, isMobile ? 6 : 4.5]);
-  const gridRotateX = useTransform(smoothScroll, [0, 0.3], [0, 15]);
-  const gridOpacity = useTransform(smoothScroll, [0.1, 0.45], [1, 0]);
 
   const tiles = useMemo(() => {
     const activeCells: { r: number; c: number; id: number; colorIndex: number }[] = [];
@@ -64,57 +64,65 @@ const HeroMosaic: React.FC = () => {
       const scatterX = diffX * scatterFactor + (Math.random() - 0.5) * (isMobile ? 500 : 1000);
       const scatterY = diffY * scatterFactor + (Math.random() - 0.5) * (isMobile ? 500 : 1000);
 
-      return (
-        <motion.div
-          key={cell.id}
-          initial={{ scale: 0, opacity: 0, rotate: (Math.random() - 0.5) * 360 }}
-          animate={
-            phase === 'dump' ? { 
-              scale: 0.4 + Math.random() * 0.6, 
-              opacity: 0.6, 
-              x: (Math.random() - 0.5) * (isMobile ? 800 : 1500), 
-              y: (Math.random() - 0.5) * (isMobile ? 800 : 1500),
-              rotate: (Math.random() - 0.5) * 180
-            } :
-            phase === 'collecting' ? { scale: 1.05, opacity: 1, x: 0, y: 0, rotate: 0 } :
-            { scale: 1, opacity: 1, x: 0, y: 0, rotate: 0 }
-          }
-          whileHover={phase === 'formed' ? { 
-            scale: isMobile ? 6 : 10, 
-            zIndex: 100,
-            transition: { type: 'spring', stiffness: 300, damping: 20 }
-          } : {}}
-          transition={{
-            type: 'spring',
-            stiffness: isMobile ? 60 : 45,
-            damping: 15,
-            delay: phase === 'formed' ? index * 0.0015 : 0
-          }}
-          style={{
-            gridRow: cell.r + 1,
-            gridColumn: cell.c + 1,
-            x: useTransform(smoothScroll, [0, 0.4], [0, scatterX]),
-            y: useTransform(smoothScroll, [0, 0.4], [0, scatterY]),
-            zIndex: phase === 'formed' ? 10 : 1,
-          }}
-          className="relative aspect-square group/tile cursor-pointer"
-        >
-          <div className="w-full h-full overflow-hidden rounded-[1px] md:rounded-[4px] border border-white/20 relative shadow-2xl transition-all duration-300 group-hover/tile:border-white/50">
-            <img 
-              src={`https://picsum.photos/id/${(index % 100) + 10}/300/300`} 
-              alt="" 
-              className="w-full h-full object-cover grayscale-[0.2] group-hover/tile:grayscale-0 transition-all duration-500"
-              loading="lazy"
-            />
-            <div 
-              className="absolute inset-0 pointer-events-none opacity-40 group-hover/tile:opacity-0 transition-opacity duration-300" 
-              style={{ backgroundColor: vibrantColors[cell.colorIndex], mixBlendMode: 'overlay' }}
-            />
-          </div>
-        </motion.div>
-      );
+      return {
+        cell,
+        index,
+        scatterX,
+        scatterY,
+        vibrantColors
+      };
     });
-  }, [phase, smoothScroll, isMobile]);
+  }, [isMobile]);
+
+  const renderedTiles = tiles.map(({ cell, index, scatterX, scatterY, vibrantColors }) => (
+    <motion.div
+      key={cell.id}
+      initial={{ scale: 0, opacity: 0, rotate: (Math.random() - 0.5) * 360 }}
+      animate={
+        phase === 'dump' ? { 
+          scale: 0.4 + Math.random() * 0.6, 
+          opacity: 0.6, 
+          x: (Math.random() - 0.5) * (isMobile ? 800 : 1500), 
+          y: (Math.random() - 0.5) * (isMobile ? 800 : 1500),
+          rotate: (Math.random() - 0.5) * 180
+        } :
+        phase === 'collecting' ? { scale: 1.05, opacity: 1, x: 0, y: 0, rotate: 0 } :
+        { scale: 1, opacity: 1, x: 0, y: 0, rotate: 0 }
+      }
+      whileHover={phase === 'formed' ? { 
+        scale: isMobile ? 6 : 10, 
+        zIndex: 100,
+        transition: { type: 'spring', stiffness: 300, damping: 20 }
+      } : {}}
+      transition={{
+        type: 'spring',
+        stiffness: isMobile ? 60 : 45,
+        damping: 15,
+        delay: phase === 'formed' ? index * 0.0015 : 0
+      }}
+      style={{
+        gridRow: cell.r + 1,
+        gridColumn: cell.c + 1,
+        x: useTransform(smoothScroll, [0, 0.4], [0, scatterX]),
+        y: useTransform(smoothScroll, [0, 0.4], [0, scatterY]),
+        zIndex: phase === 'formed' ? 10 : 1,
+      }}
+      className="relative aspect-square group/tile cursor-pointer"
+    >
+      <div className="w-full h-full overflow-hidden rounded-[1px] md:rounded-[4px] border border-white/20 relative shadow-2xl transition-all duration-300 group-hover/tile:border-white/50">
+        <img 
+          src={`https://picsum.photos/id/${(index % 100) + 10}/300/300`} 
+          alt="" 
+          className="w-full h-full object-cover grayscale-[0.2] group-hover/tile:grayscale-0 transition-all duration-500"
+          loading="lazy"
+        />
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-40 group-hover/tile:opacity-0 transition-opacity duration-300" 
+          style={{ backgroundColor: vibrantColors[cell.colorIndex], mixBlendMode: 'overlay' }}
+        />
+      </div>
+    </motion.div>
+  ));
 
   return (
     <section className="relative h-[250vh] md:h-[300vh] w-full">
@@ -143,7 +151,7 @@ const HeroMosaic: React.FC = () => {
         >
           {/* Main Typography Grid */}
           <div className="grid grid-cols-[repeat(35,minmax(0,1fr))] gap-[1px] md:gap-[3px] lg:gap-[4px] mx-auto pointer-events-auto">
-            {tiles}
+            {renderedTiles}
           </div>
           
           {/* Subtext that appears after assembly */}
@@ -164,7 +172,7 @@ const HeroMosaic: React.FC = () => {
               className="flex items-center gap-2 md:gap-4 text-[7px] sm:text-[9px] md:text-[12px] uppercase tracking-[0.3em] md:tracking-[0.8em] font-black"
             >
               <Sparkles className="w-2.5 h-2.5 md:w-4 h-4" />
-              <span className="whitespace-nowrap">BVRIT HYDERABAD • 2025</span>
+              <span className="whitespace-nowrap">BVRIT HYDERABAD • 2026</span>
               <Sparkles className="w-2.5 h-2.5 md:w-4 h-4" />
             </motion.div>
           </motion.div>

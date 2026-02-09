@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
     { name: 'Technical', href: '#technical' },
     { name: 'Cultural', href: '#cultural' },
     { name: 'Workshops', href: '#workshops' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -34,7 +35,7 @@ const Navbar: React.FC = () => {
             <Rocket size={24} />
           </div>
           <span className="text-3xl font-display font-black tracking-tighter text-white">
-            SYNERGIA<span className="text-fuchsia-400">25</span>
+            SYNERGIA<span className="text-fuchsia-400">26</span>
           </span>
         </a>
 
@@ -50,6 +51,13 @@ const Navbar: React.FC = () => {
               <span className="absolute -bottom-2 left-0 w-0 h-[2.5px] bg-fuchsia-400 transition-all group-hover:w-full" />
             </a>
           ))}
+          <a 
+            href="#contact"
+            className="text-xs uppercase tracking-[0.4em] font-black text-white/75 hover:text-white transition-all relative group"
+          >
+            Contact
+            <span className="absolute -bottom-2 left-0 w-0 h-[2.5px] bg-fuchsia-400 transition-all group-hover:w-full" />
+          </a>
           <button className="px-10 py-4 rounded-2xl bg-white text-slate-950 text-[12px] uppercase tracking-[0.3em] font-black hover:bg-fuchsia-500 hover:text-white transition-all shadow-xl active:scale-95">
             Register Now
           </button>

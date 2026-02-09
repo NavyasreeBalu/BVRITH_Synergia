@@ -115,6 +115,12 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
               </div>
             </div>
           </div>
+
+          {event.hostedBy && (
+            <div className="text-[10px] font-bold text-white/50 uppercase tracking-wider text-center mt-4">
+              By {event.hostedBy}
+            </div>
+          )}
         </div>
       </div>
 

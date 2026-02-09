@@ -3,6 +3,7 @@ import React from 'react';
 import HeroMosaic from './components/HeroMosaic';
 import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -65,11 +66,11 @@ const App: React.FC = () => {
 
               <h2 className="text-5xl sm:text-7xl md:text-[12rem] font-display font-black text-white mb-10 md:mb-20 tracking-tighter leading-[0.85] md:leading-[0.75]">
                 SYNERGIA <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">2K25.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">2K26.</span>
               </h2>
               
               <p className="text-white/90 max-w-4xl mx-auto text-lg md:text-3xl leading-relaxed font-light mb-24 md:mb-48 px-4">
-                Welcome to the annual flagship festival of BVRIT Hyderabad. A two-day convergence where talent meets innovation and dreams find their future.
+                A three-day convergence of innovation, technology, and culture at BVRIT Hyderabad College of Engineering for Women. April 2-4, 2026.
               </p>
             </motion.div>
 
@@ -101,6 +102,8 @@ const App: React.FC = () => {
               </div>
             </motion.div>
           </section>
+
+          <Contact />
         </motion.div>
       </main>
 
