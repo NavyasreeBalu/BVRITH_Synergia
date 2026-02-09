@@ -1,14 +1,40 @@
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { EVENTS_DATA } from '../constants';
 import { EventCategory } from '../types';
 import EventCard from './EventCard';
+import EventSearch from './EventSearch';
 
 const BentoGrid: React.FC = () => {
-  const technicalEvents = EVENTS_DATA.filter(e => e.category === EventCategory.TECHNICAL);
-  const culturalEvents = EVENTS_DATA.filter(e => e.category === EventCategory.CULTURAL);
-  const workshopEvents = EVENTS_DATA.filter(e => e.category === EventCategory.WORKSHOPS);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<EventCategory | 'all'>('all');
+
+  // Filter events based on search and category
+  const filteredEvents = useMemo(() => {
+    let filtered = EVENTS_DATA;
+
+    // Filter by category
+    if (activeCategory !== 'all') {
+      filtered = filtered.filter(e => e.category === activeCategory);
+    }
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(e => 
+        e.title.toLowerCase().includes(query) ||
+        e.description.toLowerCase().includes(query) ||
+        e.hostedBy.toLowerCase().includes(query)
+      );
+    }
+
+    return filtered;
+  }, [searchQuery, activeCategory]);
+
+  const technicalEvents = filteredEvents.filter(e => e.category === EventCategory.TECHNICAL);
+  const culturalEvents = filteredEvents.filter(e => e.category === EventCategory.CULTURAL);
+  const workshopEvents = filteredEvents.filter(e => e.category === EventCategory.WORKSHOPS);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -30,8 +56,33 @@ const BentoGrid: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-2 md:px-6 py-20 md:py-48 space-y-32 md:space-y-64 relative z-10">
+      {/* Search and Filter */}
+      <EventSearch 
+        onSearch={setSearchQuery}
+        onFilterCategory={setActiveCategory}
+        activeCategory={activeCategory}
+        searchQuery={searchQuery}
+      />
+
+      {/* No Results Message */}
+      {filteredEvents.length === 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center py-20"
+        >
+          <h3 className="text-3xl md:text-5xl font-display font-black text-white mb-4">
+            No events found
+          </h3>
+          <p className="text-white/60 text-lg">
+            Try adjusting your search or filter criteria
+          </p>
+        </motion.div>
+      )}
+
       {/* Technical Section */}
-      <section id="technical">
+      {(activeCategory === 'all' || activeCategory === EventCategory.TECHNICAL) && technicalEvents.length > 0 && (
+        <section id="technical">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,9 +112,11 @@ const BentoGrid: React.FC = () => {
           ))}
         </motion.div>
       </section>
+      )}
 
       {/* Cultural Section */}
-      <section id="cultural">
+      {(activeCategory === 'all' || activeCategory === EventCategory.CULTURAL) && culturalEvents.length > 0 && (
+        <section id="cultural">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,9 +146,11 @@ const BentoGrid: React.FC = () => {
           ))}
         </motion.div>
       </section>
+      )}
 
       {/* Workshops Section */}
-      <section id="workshops">
+      {(activeCategory === 'all' || activeCategory === EventCategory.WORKSHOPS) && workshopEvents.length > 0 && (
+        <section id="workshops">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,6 +180,7 @@ const BentoGrid: React.FC = () => {
           ))}
         </motion.div>
       </section>
+      )}
     </div>
   );
 };

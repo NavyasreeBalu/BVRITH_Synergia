@@ -115,6 +115,7 @@ const HeroMosaic: React.FC = () => {
           alt={`Synergia fest mosaic tile ${index + 1}`}
           className="w-full h-full object-cover grayscale-[0.2] group-hover/tile:grayscale-0 transition-all duration-500"
           loading="lazy"
+          decoding="async"
         />
         <div 
           className="absolute inset-0 pointer-events-none opacity-40 group-hover/tile:opacity-0 transition-opacity duration-300" 

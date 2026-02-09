@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16 md:mb-24">
           <div className="col-span-1 md:col-span-2">
             <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-6 md:mb-10 tracking-tighter">
-              SYNERGIA<span className="text-fuchsia-400">2K25.</span>
+              SYNERGIA<span className="text-fuchsia-400">2K26.</span>
             </h2>
             <p className="text-white/70 max-w-md mb-8 md:mb-12 text-base md:text-lg leading-relaxed font-medium">
               BVRIT Hyderabad College of Engineering for Women presents its annual technical and cultural extravaganza. Synergizing talent, innovating the future.
@@ -25,16 +25,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          <div>
-            <h4 className="text-white text-lg md:text-xl font-black mb-6 md:mb-8 uppercase tracking-widest">Navigation</h4>
-            <ul className="space-y-4 md:space-y-6 text-white/65 font-bold text-xs md:text-sm uppercase tracking-[0.2em]">
-              <li><a href="#technical" className="hover:text-amber-400 transition-colors">Technical Events</a></li>
-              <li><a href="#cultural" className="hover:text-fuchsia-400 transition-colors">Cultural Realms</a></li>
-              <li><a href="#workshops" className="hover:text-indigo-400 transition-colors">Skill Workshops</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Registration Hub</a></li>
-            </ul>
-          </div>
-
           <div>
             <h4 className="text-white text-lg md:text-xl font-black mb-6 md:mb-8 uppercase tracking-widest">Connect</h4>
             <ul className="space-y-4 md:space-y-6 text-white/65 font-bold text-xs md:text-sm tracking-widest">
@@ -55,11 +45,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-[10px] md:text-[11px] text-white/40 uppercase tracking-[0.3em] md:tracking-[0.5em] font-black text-center md:text-left">
-          <p>© 2025 BVRIT HYDERABAD College of Engineering for Women.</p>
+          <p>© 2026 BVRIT HYDERABAD College of Engineering for Women.</p>
           <div className="flex gap-8 md:gap-12">
-            <a href="#" className="hover:text-white transition-colors">About Us</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact Us</a>
           </div>
         </div>
       </div>

@@ -43,6 +43,8 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose }) => {
                 src={event.image} 
                 alt={event.title}
                 className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
             </div>
@@ -101,7 +103,11 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose }) => {
                 </div>
               </div>
 
-              <button className="w-full py-4 md:py-6 rounded-xl md:rounded-2xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white font-black text-lg md:text-xl uppercase tracking-wider hover:scale-105 transition-transform active:scale-95">
+              {/* TODO: Replace with actual Google Form link from event coordinators */}
+              <button 
+                className="w-full py-4 md:py-6 rounded-xl md:rounded-2xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white font-black text-lg md:text-xl uppercase tracking-wider hover:scale-105 transition-transform active:scale-95"
+                onClick={() => alert('Registration form will be added by event coordinators')}
+              >
                 Register Now
               </button>
             </div>
