@@ -2,6 +2,9 @@ import React from 'react';
 import HeroMosaic from './components/HeroMosaic';
 import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
+import Stats from './components/Stats';
+import Schedule from './components/Schedule';
+import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
@@ -123,6 +126,9 @@ const App: React.FC = () => {
             </motion.div>
           </section>
 
+          <Stats />
+          <Schedule />
+          <Sponsors />
           <Contact />
         </motion.div>
       </main>
