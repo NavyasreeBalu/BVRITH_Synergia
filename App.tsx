@@ -11,12 +11,12 @@ const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   
-  const portalY = useTransform(scrollYProgress, [0.05, 0.25], prefersReducedMotion ? [0, 0] : [800, 0]);
-  const portalScale = useTransform(scrollYProgress, [0.05, 0.25], prefersReducedMotion ? [1, 1] : [0.85, 1]);
+  const portalY = useTransform(scrollYProgress, [0.05, 0.35], prefersReducedMotion ? [0, 0] : [600, 0]);
+  const portalScale = useTransform(scrollYProgress, [0.05, 0.35], prefersReducedMotion ? [1, 1] : [0.9, 1]);
   
   const realmBg = useTransform(
     scrollYProgress, 
-    [0.4, 0.6, 0.8, 1], 
+    [0.3, 0.5, 0.7, 0.9], 
     ["#1e1b4b", "#312e81", "#701a75", "#020617"] // Adjusted for slightly higher luminance in transition phases
   );
 
