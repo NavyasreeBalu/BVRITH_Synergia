@@ -11,9 +11,9 @@ const HeroMosaic: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const smoothScroll = useSpring(scrollYProgress, { stiffness: 40, damping: 20 });
   
-  const gridScale = useTransform(smoothScroll, [0, 0.4], [1, isMobile ? 6 : 4.5]);
-  const gridRotateX = useTransform(smoothScroll, [0, 0.3], [0, 15]);
-  const gridOpacity = useTransform(smoothScroll, [0.1, 0.45], [1, 0]);
+  const gridScale = useTransform(smoothScroll, [0, 0.15], [1, isMobile ? 6 : 4.5]);
+  const gridRotateX = useTransform(smoothScroll, [0, 0.12], [0, 15]);
+  const gridOpacity = useTransform(smoothScroll, [0.05, 0.2], [1, 0]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -103,8 +103,8 @@ const HeroMosaic: React.FC = () => {
       style={{
         gridRow: cell.r + 1,
         gridColumn: cell.c + 1,
-        x: useTransform(smoothScroll, [0, 0.4], [0, scatterX]),
-        y: useTransform(smoothScroll, [0, 0.4], [0, scatterY]),
+        x: useTransform(smoothScroll, [0, 0.15], [0, scatterX]),
+        y: useTransform(smoothScroll, [0, 0.15], [0, scatterY]),
         zIndex: phase === 'formed' ? 10 : 1,
       }}
       className="relative aspect-square group/tile cursor-pointer"
@@ -112,7 +112,7 @@ const HeroMosaic: React.FC = () => {
       <div className="w-full h-full overflow-hidden rounded-[1px] md:rounded-[4px] border border-white/20 relative shadow-2xl transition-all duration-300 group-hover/tile:border-white/50">
         <img 
           src={`https://picsum.photos/id/${(index % 100) + 10}/300/300`} 
-          alt="" 
+          alt={`Synergia fest mosaic tile ${index + 1}`}
           className="w-full h-full object-cover grayscale-[0.2] group-hover/tile:grayscale-0 transition-all duration-500"
           loading="lazy"
         />
@@ -125,7 +125,7 @@ const HeroMosaic: React.FC = () => {
   ));
 
   return (
-    <section className="relative h-[250vh] md:h-[300vh] w-full">
+    <section className="relative h-[100vh] w-full">
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-slate-950">
         
         {/* Atmosphere */}
@@ -185,7 +185,7 @@ const HeroMosaic: React.FC = () => {
         >
           <div className="px-5 md:px-8 py-2 md:py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">
             <Zap className="w-3.5 h-3.5 md:w-5 h-5 text-amber-400" />
-            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-white">Slide to Dive</span>
+            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-white">Scroll to Explore</span>
           </div>
           <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 2.5 }}>
             <ChevronDown className="w-5 h-5 md:w-8 h-8 text-white/10" />

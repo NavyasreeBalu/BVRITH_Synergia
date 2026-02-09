@@ -45,22 +45,12 @@ const Navbar: React.FC = () => {
             <a 
               key={item.name} 
               href={item.href}
-              className="text-xs uppercase tracking-[0.4em] font-black text-white/75 hover:text-white transition-all relative group"
+              className="text-xs uppercase tracking-[0.4em] font-black text-white/75 hover:text-white focus:text-white focus:outline-none transition-all relative group"
             >
               {item.name}
-              <span className="absolute -bottom-2 left-0 w-0 h-[2.5px] bg-fuchsia-400 transition-all group-hover:w-full" />
+              <span className="absolute -bottom-2 left-0 w-0 h-[2.5px] bg-fuchsia-400 transition-all group-hover:w-full group-focus:w-full" />
             </a>
           ))}
-          <a 
-            href="#contact"
-            className="text-xs uppercase tracking-[0.4em] font-black text-white/75 hover:text-white transition-all relative group"
-          >
-            Contact
-            <span className="absolute -bottom-2 left-0 w-0 h-[2.5px] bg-fuchsia-400 transition-all group-hover:w-full" />
-          </a>
-          <button className="px-10 py-4 rounded-2xl bg-white text-slate-950 text-[12px] uppercase tracking-[0.3em] font-black hover:bg-fuchsia-500 hover:text-white transition-all shadow-xl active:scale-95">
-            Register Now
-          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -99,14 +89,16 @@ const Navbar: React.FC = () => {
                 {item.name}
               </motion.a>
             ))}
-            <motion.button 
+            <motion.a 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="w-full mt-auto px-10 py-8 rounded-[3rem] bg-gradient-to-r from-amber-400 to-fuchsia-500 text-white font-black text-3xl shadow-3xl"
+              href="#contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full mt-auto px-10 py-8 rounded-[3rem] bg-gradient-to-r from-amber-400 to-fuchsia-500 text-white font-black text-3xl shadow-3xl text-center block"
             >
-              Get Your Ticket
-            </motion.button>
+              Contact Us
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>

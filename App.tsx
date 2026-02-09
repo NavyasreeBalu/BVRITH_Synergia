@@ -1,17 +1,18 @@
-
 import React from 'react';
 import HeroMosaic from './components/HeroMosaic';
 import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   
-  const portalY = useTransform(scrollYProgress, [0.15, 0.45], [800, 0]);
-  const portalScale = useTransform(scrollYProgress, [0.15, 0.45], [0.85, 1]);
+  const portalY = useTransform(scrollYProgress, [0.05, 0.25], prefersReducedMotion ? [0, 0] : [800, 0]);
+  const portalScale = useTransform(scrollYProgress, [0.05, 0.25], prefersReducedMotion ? [1, 1] : [0.85, 1]);
   
   const realmBg = useTransform(
     scrollYProgress, 
@@ -88,16 +89,26 @@ const App: React.FC = () => {
               
               <div className="relative z-10">
                 <h3 className="text-5xl md:text-[8rem] font-display font-black text-white mb-10 md:mb-12 tracking-tighter leading-none">
-                  READY TO <br/><span className="text-fuchsia-400 italic">SHINE?</span>
+                  WHERE <span className="text-fuchsia-400 italic">INNOVATION</span><br/>
+                  MEETS <span className="text-amber-400 italic">PASSION</span>
                 </h3>
+                <p className="text-white/80 text-xl md:text-3xl leading-relaxed max-w-4xl mx-auto mb-12 md:mb-16 font-light">
+                  Three days. 20+ events. Endless possibilities. Join us at BVRIT Hyderabad for a celebration of technology, culture, and creativity that will ignite your potential.
+                </p>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
-                  <button className="group relative w-full md:w-auto px-12 md:px-20 py-6 md:py-8 rounded-2xl md:rounded-[2rem] bg-white text-slate-950 font-black text-xl md:text-2xl overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)] active:scale-95">
-                    <span className="relative z-10">REGISTER NOW</span>
+                  <a 
+                    href="#technical"
+                    className="group relative w-full md:w-auto px-12 md:px-20 py-6 md:py-8 rounded-2xl md:rounded-[2rem] bg-white text-slate-950 font-black text-xl md:text-2xl overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)] active:scale-95 text-center"
+                  >
+                    <span className="relative z-10">EXPLORE EVENTS</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-fuchsia-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                  </button>
-                  <button className="w-full md:w-auto px-12 md:px-20 py-6 md:py-8 rounded-2xl md:rounded-[2rem] border-2 md:border-4 border-white/30 text-white font-black text-xl md:text-2xl hover:bg-white/10 transition-all hover:scale-105 active:scale-95">
-                    EVENT GUIDE
-                  </button>
+                  </a>
+                  <a 
+                    href="#contact"
+                    className="w-full md:w-auto px-12 md:px-20 py-6 md:py-8 rounded-2xl md:rounded-[2rem] border-2 md:border-4 border-white/30 text-white font-black text-xl md:text-2xl hover:bg-white/10 transition-all hover:scale-105 active:scale-95 text-center block"
+                  >
+                    GET IN TOUCH
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -108,6 +119,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 };

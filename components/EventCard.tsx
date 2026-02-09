@@ -1,8 +1,9 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
 import { FestEvent } from '../types';
 import { Calendar, ArrowUpRight, Activity, Users } from 'lucide-react';
+import EventModal from './EventModal';
 
 interface EventCardProps {
   event: FestEvent;
@@ -13,6 +14,7 @@ const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -53,13 +55,19 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const currentTheme = themeColors[event.accentColor] || themeColors.cyan;
 
   return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ transformStyle: "preserve-3d", transform }}
-      className="relative w-full h-full group cursor-pointer"
-    >
+    <>
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onClick={() => setIsModalOpen(true)}
+        onKeyDown={(e) => e.key === 'Enter' && setIsModalOpen(true)}
+        tabIndex={0}
+        role="button"
+        aria-label={`View details for ${event.title}`}
+        style={{ transformStyle: "preserve-3d", transform }}
+        className="relative w-full h-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:ring-offset-2 focus:ring-offset-slate-950 rounded-[2rem] md:rounded-[3.5rem]"
+      >
       <div 
         className={`relative h-full flex flex-col bg-slate-900/60 backdrop-blur-3xl rounded-[2rem] md:rounded-[3.5rem] border border-white/10 overflow-hidden transition-all duration-700 group-hover:border-white/30 shadow-2xl`}
       >
@@ -117,7 +125,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           </div>
 
           {event.hostedBy && (
-            <div className="text-[10px] font-bold text-white/50 uppercase tracking-wider text-center mt-4">
+            <div className="text-xs font-bold text-white/60 uppercase tracking-wider text-center mt-4">
               By {event.hostedBy}
             </div>
           )}
@@ -130,6 +138,9 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         style={{ background: currentTheme.glow }}
       />
     </motion.div>
+
+    <EventModal event={event} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 };
 
