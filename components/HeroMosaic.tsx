@@ -90,7 +90,12 @@ const HeroMosaic: React.FC = () => {
         { scale: 1, opacity: 1, x: 0, y: 0, rotate: 0 }
       }
       whileHover={phase === 'formed' ? { 
-        scale: isMobile ? 2.5 : 3.5, 
+        scale: isMobile ? 1 : 3.5, 
+        zIndex: 100,
+        transition: { type: 'spring', stiffness: 300, damping: 20 }
+      } : {}}
+      whileTap={phase === 'formed' ? {
+        scale: 2.5,
         zIndex: 100,
         transition: { type: 'spring', stiffness: 300, damping: 20 }
       } : {}}
