@@ -70,7 +70,7 @@ const App: React.FC = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">2K26.</span>
               </h2>
               
-              <p className="text-white/90 max-w-4xl mx-auto text-lg md:text-3xl leading-relaxed font-light mb-24 md:mb-48 px-4">
+              <p className="text-white/90 max-w-4xl mx-auto text-base md:text-lg lg:text-3xl leading-relaxed font-light mb-16 md:mb-24 lg:mb-48 px-4">
                 A three-day convergence of innovation, technology, and culture at BVRIT Hyderabad College of Engineering for Women. April 2-4, 2026.
               </p>
             </motion.div>
@@ -88,24 +88,24 @@ const App: React.FC = () => {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(217,70,239,0.12),transparent_70%)] transition-colors duration-1000" />
               
               <div className="relative z-10">
-                <h3 className="text-5xl md:text-[8rem] font-display font-black text-white mb-10 md:mb-12 tracking-tighter leading-none">
+                <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-[8rem] font-display font-black text-white mb-6 md:mb-10 lg:mb-12 tracking-tighter leading-none">
                   WHERE <span className="text-fuchsia-400 italic">INNOVATION</span><br/>
                   MEETS <span className="text-amber-400 italic">PASSION</span>
                 </h3>
-                <p className="text-white/80 text-xl md:text-3xl leading-relaxed max-w-4xl mx-auto mb-12 md:mb-16 font-light">
+                <p className="text-white/80 text-base md:text-xl lg:text-3xl leading-relaxed max-w-4xl mx-auto mb-8 md:mb-12 lg:mb-16 font-light px-4">
                   Three days. 20+ events. Endless possibilities. Join us at BVRIT Hyderabad for a celebration of technology, culture, and creativity that will ignite your potential.
                 </p>
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-10 px-4">
                   <a 
                     href="#technical"
-                    className="group relative w-full md:w-auto px-12 md:px-20 py-6 md:py-8 rounded-2xl md:rounded-[2rem] bg-white text-slate-950 font-black text-xl md:text-2xl overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)] active:scale-95 text-center"
+                    className="group relative w-full md:w-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8 rounded-xl md:rounded-2xl lg:rounded-[2rem] bg-white text-slate-950 font-black text-base md:text-xl lg:text-2xl overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)] active:scale-95 text-center"
                   >
                     <span className="relative z-10">EXPLORE EVENTS</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-fuchsia-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </a>
                   <a 
                     href="#contact"
-                    className="w-full md:w-auto px-12 md:px-20 py-6 md:py-8 rounded-2xl md:rounded-[2rem] border-2 md:border-4 border-white/30 text-white font-black text-xl md:text-2xl hover:bg-white/10 transition-all hover:scale-105 active:scale-95 text-center block"
+                    className="w-full md:w-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8 rounded-xl md:rounded-2xl lg:rounded-[2rem] border-2 md:border-4 border-white/30 text-white font-black text-base md:text-xl lg:text-2xl hover:bg-white/10 transition-all hover:scale-105 active:scale-95 text-center block"
                   >
                     GET IN TOUCH
                   </a>
