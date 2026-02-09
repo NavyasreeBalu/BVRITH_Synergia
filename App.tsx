@@ -22,6 +22,14 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen selection:bg-fuchsia-500/40 relative">
+      {/* Skip Navigation */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-6 focus:py-3 focus:bg-fuchsia-500 focus:text-white focus:font-bold focus:rounded-xl focus:shadow-2xl"
+      >
+        Skip to main content
+      </a>
+      
       <Navbar />
       
       <main className="relative">
@@ -36,6 +44,7 @@ const App: React.FC = () => {
             backgroundColor: realmBg
           }}
           className="relative z-20 rounded-t-[3rem] md:rounded-t-[8rem] shadow-[0_-30px_100px_rgba(0,0,0,0.85)] transition-colors duration-1000 overflow-hidden"
+          id="main-content"
         >
           {/* Chromatic Edge Reveal */}
           <div className="absolute top-0 inset-x-0 h-1 md:h-1.5 bg-gradient-to-r from-amber-400 via-fuchsia-500 to-indigo-500" />

@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-6 md:mb-10 tracking-tighter">
               SYNERGIA<span className="text-fuchsia-400">2K26.</span>
             </h2>
-            <p className="text-white/70 max-w-md mb-8 md:mb-12 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-white/80 max-w-md mb-8 md:mb-12 text-base md:text-lg leading-relaxed font-medium">
               BVRIT Hyderabad College of Engineering for Women presents its annual technical and cultural extravaganza. Synergizing talent, innovating the future.
             </p>
             <div className="flex gap-4 md:gap-6">
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
           
           <div>
             <h4 className="text-white text-lg md:text-xl font-black mb-6 md:mb-8 uppercase tracking-widest">Connect</h4>
-            <ul className="space-y-4 md:space-y-6 text-white/65 font-bold text-xs md:text-sm tracking-widest">
+            <ul className="space-y-4 md:space-y-6 text-white/75 font-bold text-xs md:text-sm tracking-widest">
               <li className="flex items-start gap-3 md:gap-4">
                 <MapPin className="w-5 h-5 text-fuchsia-400 shrink-0" />
                 <span className="font-medium">BVRIT HYDERABAD, <br/>Bachupally, Hyderabad.</span>
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-[10px] md:text-[11px] text-white/40 uppercase tracking-[0.3em] md:tracking-[0.5em] font-black text-center md:text-left">
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-[10px] md:text-[11px] text-white/50 uppercase tracking-[0.3em] md:tracking-[0.5em] font-black text-center md:text-left">
           <p>© 2026 BVRIT HYDERABAD College of Engineering for Women.</p>
           <div className="flex gap-8 md:gap-12">
             <a href="#contact" className="hover:text-white transition-colors">Contact Us</a>

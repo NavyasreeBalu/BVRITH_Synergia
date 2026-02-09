@@ -127,7 +127,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           </div>
 
           {event.hostedBy && (
-            <div className="text-xs font-bold text-white/60 uppercase tracking-wider text-center mt-4">
+            <div className="text-xs font-bold text-white/70 uppercase tracking-wider text-center mt-4">
               By {event.hostedBy}
             </div>
           )}
