@@ -6,7 +6,7 @@ const Stats: React.FC = () => {
   const stats = [
     { icon: Calendar, value: '20+', label: 'Events', color: 'from-fuchsia-400 to-pink-500' },
     { icon: Sparkles, value: '3', label: 'Categories', color: 'from-amber-400 to-orange-500' },
-    { icon: Users, value: '1000+', label: 'Participants', color: 'from-indigo-400 to-purple-500' },
+    { icon: Users, value: 'All', label: 'Colleges', color: 'from-indigo-400 to-purple-500' },
     { icon: TrendingUp, value: '3', label: 'Days', color: 'from-emerald-400 to-teal-500' },
   ];
 

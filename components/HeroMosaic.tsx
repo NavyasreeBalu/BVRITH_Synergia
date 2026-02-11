@@ -156,7 +156,7 @@ const HeroMosaic: React.FC = () => {
           className="relative z-10 w-full px-4 md:px-20 max-w-full"
         >
           {/* Main Typography Grid */}
-          <div className="grid grid-cols-[repeat(35,minmax(0,1fr))] gap-[1px] md:gap-[3px] lg:gap-[4px] mx-auto pointer-events-auto">
+          <div className="grid grid-cols-[repeat(36,minmax(0,1fr))] gap-[1px] md:gap-[2px] lg:gap-[3px] mx-auto pointer-events-auto max-w-[90vw]">
             {renderedTiles}
           </div>
           
