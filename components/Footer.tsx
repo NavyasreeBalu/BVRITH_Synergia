@@ -4,16 +4,16 @@ import { Instagram, Twitter, Facebook, Mail, MapPin, Phone } from 'lucide-react'
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black/95 pt-20 md:pt-32 pb-12 md:pb-16 relative overflow-hidden">
+    <footer className="bg-black/95 pt-0 pb-0 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 sm:gap-12 md:gap-20 mb-16 md:mb-24">
           <div className="col-span-1 md:col-span-2">
             <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-6 md:mb-10 tracking-tighter">
               SYNERGIA<span className="text-fuchsia-400">2K26.</span>
             </h2>
-            <p className="text-white/80 max-w-md mb-8 md:mb-12 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-white/80 max-w-md mb-8 md:mb-12 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
               BVRIT Hyderabad College of Engineering for Women presents its annual technical and cultural extravaganza. Synergizing talent, innovating the future.
             </p>
             <div className="flex gap-4 md:gap-6">

@@ -5,7 +5,7 @@ import { CONTACT_INFO, FEST_INFO } from '../constants';
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="max-w-7xl mx-auto px-4 md:px-6 py-32 md:py-48">
+    <section id="contact" className="max-w-7xl mx-auto px-4 md:px-6 py-0">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20">
         {/* SAC Members */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-fuchsia-400/50 transition-all hover:bg-white/10"
+              className="group p-5 sm:p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-fuchsia-400/50 transition-all hover:bg-white/10"
             >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-fuchsia-400 to-indigo-500 flex items-center justify-center flex-shrink-0">

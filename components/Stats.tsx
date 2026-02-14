@@ -11,12 +11,12 @@ const Stats: React.FC = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-32">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-0">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+        className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8"
       >
         {stats.map((stat, index) => (
           <motion.div
@@ -27,7 +27,7 @@ const Stats: React.FC = () => {
             transition={{ delay: index * 0.1 }}
             className="relative group"
           >
-            <div className="p-6 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all hover:bg-white/10">
+            <div className="p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all hover:bg-white/10">
               <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform`}>
                 <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
               </div>

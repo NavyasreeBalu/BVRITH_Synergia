@@ -15,7 +15,7 @@ const Sponsors: React.FC = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-48">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-0">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const Sponsors: React.FC = () => {
         <h3 className="text-center text-xl md:text-2xl font-black text-white/80 uppercase tracking-wider mb-8">
           Platinum Partners
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {sponsors.filter(s => s.tier === 'platinum').map((sponsor, index) => (
             <motion.div
               key={index}
@@ -68,7 +68,7 @@ const Sponsors: React.FC = () => {
         <h3 className="text-center text-lg md:text-xl font-black text-white/70 uppercase tracking-wider mb-8">
           Gold Partners
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
           {sponsors.filter(s => s.tier === 'gold').map((sponsor, index) => (
             <motion.div
               key={index}
@@ -95,7 +95,7 @@ const Sponsors: React.FC = () => {
         <h3 className="text-center text-base md:text-lg font-black text-white/60 uppercase tracking-wider mb-8">
           Silver Partners
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {sponsors.filter(s => s.tier === 'silver').map((sponsor, index) => (
             <motion.div
               key={index}

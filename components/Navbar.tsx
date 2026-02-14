@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Rocket } from 'lucide-react';
+import collegeLogo from '../assets/Logos/college_logo.png';
+import sacLogo from '../assets/Logos/sac_logo.png';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,91 +16,80 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { name: 'Home', href: '#' },
+    { name: 'Contacts', href: '#contact' },
     { name: 'Technical', href: '#technical' },
     { name: 'Cultural', href: '#cultural' },
     { name: 'Workshops', href: '#workshops' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
-        isScrolled ? 'bg-slate-950/90 backdrop-blur-2xl border-b border-white/10 py-4' : 'bg-transparent py-10'
+        isScrolled
+          ? 'bg-[#0b0616]/90 backdrop-blur-2xl border-b border-white/10 py-3 sm:py-4'
+          : 'bg-transparent py-5 sm:py-8'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-4 group">
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-400 via-fuchsia-400 to-indigo-500 flex items-center justify-center text-white shadow-2xl group-hover:rotate-[15deg] transition-transform duration-500">
-            <Rocket size={24} />
-          </div>
-          <span className="text-3xl font-display font-black tracking-tighter text-white">
-            SYNERGIA<span className="text-fuchsia-400">26</span>
-          </span>
-        </a>
+      <div className="absolute inset-0 pointer-events-none opacity-80">
+        <div className="h-full w-full bg-[radial-gradient(circle_at_top,rgba(255,0,122,0.18),transparent_55%)]" />
+        <div className="h-full w-full bg-[radial-gradient(circle,rgba(255,0,122,0.16)_1px,transparent_1px)] [background-size:10px_10px]" />
+      </div>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 relative">
+        <div className="hidden md:flex items-center justify-between">
+          <img
+            src={collegeLogo}
+            alt="BVRIT Hyderabad"
+            className="h-[64px] lg:h-[80px] w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]"
+            loading="eager"
+            decoding="async"
+          />
+          <div className="flex items-center justify-center gap-6 lg:gap-10">
+            {navItems.map((item) => (
+                <a 
+                  key={item.name} 
+                  href={item.href}
+                  className="text-[16px] lg:text-[18px] uppercase tracking-[0.18em] lg:tracking-[0.2em] font-pixel text-[#ff3aa7] hover:text-white focus:text-white focus:outline-none transition-colors relative"
+                >
+                  {item.name}
+                </a>
+            ))}
+          </div>
+          <img
+            src={sacLogo}
+            alt="SAC"
+            className="h-[64px] lg:h-[80px] w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <div className="md:hidden flex flex-wrap items-center justify-center gap-x-3 gap-y-2 px-2">
+          <img
+            src={collegeLogo}
+            alt="BVRIT Hyderabad"
+            className="h-8 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
+            loading="eager"
+            decoding="async"
+          />
           {navItems.map((item) => (
             <a 
               key={item.name} 
               href={item.href}
-              className="text-xs uppercase tracking-[0.4em] font-black text-white/75 hover:text-white focus:text-white focus:outline-none transition-all relative group"
+              className="text-[10px] xs:text-[11px] uppercase tracking-[0.12em] font-pixel text-[#ff3aa7] hover:text-white focus:text-white focus:outline-none transition-colors whitespace-nowrap"
             >
               {item.name}
-              <span className="absolute -bottom-2 left-0 w-0 h-[2.5px] bg-fuchsia-400 transition-all group-hover:w-full group-focus:w-full" />
             </a>
           ))}
+          <img
+            src={sacLogo}
+            alt="SAC"
+            className="h-8 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
+            loading="eager"
+            decoding="async"
+          />
         </div>
-
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white p-3 rounded-2xl bg-white/10 border border-white/20"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 bg-slate-950/98 backdrop-blur-3xl z-[90] flex flex-col p-16 gap-10"
-          >
-            <div className="flex justify-end">
-              <button onClick={() => setIsMobileMenuOpen(false)} className="text-white p-2">
-                 <X size={32} />
-              </button>
-            </div>
-            {navItems.map((item, i) => (
-              <motion.a 
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                key={item.name} 
-                href={item.href}
-                className="text-6xl font-display font-black text-white hover:text-fuchsia-400"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </motion.a>
-            ))}
-            <motion.a 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full mt-auto px-10 py-8 rounded-[3rem] bg-gradient-to-r from-amber-400 to-fuchsia-500 text-white font-black text-3xl shadow-3xl text-center block"
-            >
-              Contact Us
-            </motion.a>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };

@@ -55,7 +55,7 @@ const BentoGrid: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-2 md:px-6 py-20 md:py-48 space-y-32 md:space-y-64 relative z-10">
+    <div className="max-w-7xl mx-auto px-2 md:px-6 py-0 space-y-24 sm:space-y-32 md:space-y-48 lg:space-y-64 relative z-10">
       {/* Search and Filter */}
       <EventSearch 
         onSearch={setSearchQuery}
@@ -103,7 +103,7 @@ const BentoGrid: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6 md:gap-8"
         >
           {technicalEvents.map(event => (
             <motion.div key={event.id} variants={itemVariants}>
@@ -137,7 +137,7 @@ const BentoGrid: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-16"
         >
           {culturalEvents.map(event => (
             <motion.div key={event.id} variants={itemVariants}>
@@ -171,7 +171,7 @@ const BentoGrid: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12"
         >
           {workshopEvents.map(event => (
             <motion.div key={event.id} variants={itemVariants}>

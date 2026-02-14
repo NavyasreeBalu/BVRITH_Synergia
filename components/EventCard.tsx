@@ -74,7 +74,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         {/* Floating Category Badge */}
         <div className="absolute top-6 left-6 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20">
           <Activity size={10} className={`${currentTheme.text} animate-pulse`} />
-          <span className="text-[10px] font-black uppercase tracking-[0.1em] text-white">{event.category}</span>
+          <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.1em] text-white">{event.category}</span>
         </div>
 
         <div className="aspect-[4/3] w-full overflow-hidden relative">
@@ -95,22 +95,22 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           </div>
         </div>
 
-        <div className="p-8 md:p-12 flex flex-col flex-grow translate-z-30">
+        <div className="p-6 sm:p-8 md:p-12 flex flex-col flex-grow translate-z-30">
           <div className="flex items-center gap-4 mb-6 md:mb-8">
-            <span className="text-3xl md:text-4xl font-black text-white tracking-tighter">{event.fee}</span>
+            <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tighter">{event.fee}</span>
             <div className={`h-1.5 flex-grow rounded-full ${currentTheme.accent} opacity-30`} />
           </div>
 
-          <h3 className="text-3xl md:text-5xl font-display font-black text-white mb-6 md:mb-8 leading-[0.9] tracking-tight transition-all">
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white mb-6 md:mb-8 leading-[0.9] tracking-tight transition-all">
             {event.title}
           </h3>
           
-          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 md:mb-12 font-medium">
+          <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-8 md:mb-12 font-medium">
             {event.description}
           </p>
 
           <div className="mt-auto pt-8 border-t border-white/10 flex items-center justify-between">
-            <div className="flex items-center gap-3 text-[11px] font-black text-white/70 tracking-[0.1em] uppercase">
+            <div className="flex items-center gap-3 text-[10px] sm:text-[11px] font-black text-white/70 tracking-[0.1em] uppercase">
               <Calendar className={`w-4 h-4 ${currentTheme.text}`} />
               {event.date}
             </div>
@@ -127,7 +127,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           </div>
 
           {event.hostedBy && (
-            <div className="text-xs font-bold text-white/70 uppercase tracking-wider text-center mt-4">
+            <div className="text-[11px] sm:text-xs font-bold text-white/70 uppercase tracking-wider text-center mt-4">
               By {event.hostedBy}
             </div>
           )}

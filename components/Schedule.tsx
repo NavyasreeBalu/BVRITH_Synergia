@@ -46,7 +46,7 @@ const Schedule: React.FC = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-48">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-0">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ const Schedule: React.FC = () => {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
         {schedule.map((day, dayIndex) => (
           <motion.div
             key={dayIndex}
@@ -110,7 +110,7 @@ const Schedule: React.FC = () => {
                     transition={{ delay: dayIndex * 0.2 + eventIndex * 0.1 }}
                     className="flex items-start gap-4 group/item hover:bg-white/5 p-3 rounded-xl transition-all"
                   >
-                    <div className="text-2xl flex-shrink-0">{event.icon}</div>
+                    <div className="text-xl sm:text-2xl flex-shrink-0">{event.icon}</div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
                         <Clock className="w-4 h-4 text-fuchsia-400" />

@@ -2,6 +2,7 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { SYNERGIA_GRID } from '../constants';
+import festLogo from '../assets/Logos/fest_logo.png';
 import { ChevronDown, Sparkles, Zap } from 'lucide-react';
 
 const HeroMosaic: React.FC = () => {
@@ -11,7 +12,7 @@ const HeroMosaic: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const smoothScroll = useSpring(scrollYProgress, { stiffness: 40, damping: 20 });
   
-  const gridScale = useTransform(smoothScroll, [0, 0.15], [1, isMobile ? 6 : 4.5]);
+  const gridScale = useTransform(smoothScroll, [0, 0.15], [1, isMobile ? 4 : 4.5]);
   const gridRotateX = useTransform(smoothScroll, [0, 0.12], [0, 15]);
   const gridOpacity = useTransform(smoothScroll, [0.05, 0.2], [1, 0]);
 
@@ -155,33 +156,30 @@ const HeroMosaic: React.FC = () => {
           }}
           className="relative z-10 w-full px-4 md:px-20 max-w-full"
         >
-          {/* Main Typography Grid */}
-          <div className="grid grid-cols-[repeat(36,minmax(0,1fr))] gap-[1px] md:gap-[2px] lg:gap-[3px] mx-auto pointer-events-auto max-w-[90vw]">
-            {renderedTiles}
-          </div>
-          
-          {/* Subtext that appears after assembly */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={phase === 'formed' ? { opacity: 1, y: 0 } : { opacity: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="mt-8 md:mt-16 flex flex-col items-center gap-4 text-center pointer-events-none"
-          >
-            <h1 className="text-white font-display font-black text-3xl sm:text-5xl md:text-7xl lg:text-[8rem] tracking-[0.1em] md:tracking-[0.2em] relative inline-block px-4">
-              <span className="relative z-10">SYNERGIA</span>
-              <div className="absolute -inset-x-4 md:-inset-x-12 top-1/2 -translate-y-1/2 h-12 md:h-24 bg-fuchsia-500/10 blur-2xl -z-10 rounded-full" />
-            </h1>
-            
-            <motion.div 
-              animate={{ color: ["#fbbf24", "#f472b6", "#818cf8", "#34d399", "#fbbf24"] }}
-              transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-              className="flex items-center gap-2 md:gap-4 text-[7px] sm:text-[9px] md:text-[12px] uppercase tracking-[0.3em] md:tracking-[0.8em] font-black"
+          <div className="relative">
+            {/* Logos Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={phase === 'formed' ? { opacity: 1, y: 0 } : { opacity: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="absolute left-0 right-0 -top-[96px] sm:-top-[80px] md:-top-[64px] grid grid-cols-3 items-center gap-4 md:gap-8 pointer-events-none"
             >
-              <Sparkles className="w-2.5 h-2.5 md:w-4 h-4" />
-              <span className="whitespace-nowrap">BVRIT HYDERABAD • 2026</span>
-              <Sparkles className="w-2.5 h-2.5 md:w-4 h-4" />
+            <div className="flex justify-center col-span-3">
+              <img
+                src={festLogo}
+                alt="Synergia 2026"
+                className="w-[260px] sm:w-[380px] md:w-[520px] lg:w-[640px] h-[60px] sm:h-[70px] md:h-[90px] lg:h-[110px] object-contain drop-shadow-[0_0_40px_rgba(255,58,167,0.6)]"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
             </motion.div>
-          </motion.div>
+
+            {/* Main Typography Grid */}
+            <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-28 grid grid-cols-[repeat(36,minmax(0,1fr))] gap-[1px] md:gap-[2px] lg:gap-[3px] mx-auto pointer-events-auto max-w-[90vw]">
+              {renderedTiles}
+            </div>
+          </div>
         </motion.div>
 
         {/* Scroll Indicator */}
