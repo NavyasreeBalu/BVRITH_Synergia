@@ -242,9 +242,16 @@ export const SYNERGIA_GRID = [
 ].map(row => row.split('').map(Number));
 
 export const CONTACT_INFO = [
-  { name: 'Ms Khyathi', role: 'President, SAC', phone: '+91 7993189822' },
-  { name: 'Ms Raina', role: 'Vice President, SAC', phone: '+91 7991898822' },
-  { name: 'Ms Padmini', role: 'Treasurer, SAC', phone: '+91 7893590370' },
+  { name: 'Sarah', role: 'President', phone: '+91 9100785359' },
+  { name: 'Shanmukhi', role: 'Vice President', phone: '+91 8555062174' },
+  { name: 'Sahithi', role: 'Treasurer', phone: '+91 9100180208' },
+  { name: 'Shresta', role: 'Secretary', phone: '+91 9908018018' },
+  { name: 'Hansini', role: 'Joint Secretary', phone: '+91 9381866946' },
+  { name: 'Varsha', role: 'Cultural Head', phone: '+91 7995630929' },
+  { name: 'Sai Srinidhi', role: 'Technical Head', phone: '+91 8187818646' },
+  { name: 'Nandini', role: 'Social Media Head', phone: '+91 7207397949' },
+  { name: 'Amitha', role: 'Branding Head', phone: '+91 7793944909' },
+  { name: 'Sharanya', role: 'Creative Head', phone: '+91 9955799668' },
 ];
 
 export const FEST_INFO = {

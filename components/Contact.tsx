@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { CONTACT_INFO, FEST_INFO } from '../constants';
+import sacLogo from '../assets/Logos/sac_logo.png';
 
 const Contact: React.FC = () => {
   return (
@@ -12,10 +13,7 @@ const Contact: React.FC = () => {
         viewport={{ once: true }}
         className="text-center mb-20 md:mb-32"
       >
-        <span className="text-fuchsia-400 font-black uppercase tracking-[0.4em] md:tracking-[0.8em] text-[11px] md:text-xs block mb-4">
-          GET IN TOUCH
-        </span>
-        <h2 className="text-5xl sm:text-6xl md:text-8xl font-display font-black text-white tracking-tighter leading-none">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-pixel font-black text-white tracking-tighter leading-none">
           CONTACT US
         </h2>
       </motion.div>
@@ -28,7 +26,7 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          <h3 className="text-2xl md:text-4xl font-display font-black text-white mb-8 md:mb-12">
+          <h3 className="text-2xl md:text-4xl font-pixel font-black text-white mb-8 md:mb-12">
             Student Affairs Council
           </h3>
           
@@ -67,7 +65,7 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          <h3 className="text-2xl md:text-4xl font-display font-black text-white mb-8 md:mb-12">
+          <h3 className="text-2xl md:text-4xl font-pixel font-black text-white mb-8 md:mb-12">
             Event Details
           </h3>
 
@@ -75,7 +73,7 @@ const Contact: React.FC = () => {
             <div className="flex items-start gap-4">
               <MapPin className="w-8 h-8 text-fuchsia-400 flex-shrink-0" />
               <div>
-                <h4 className="text-lg font-black text-white mb-2">VENUE</h4>
+                <h4 className="text-lg font-pixel text-white mb-2">VENUE</h4>
                 <p className="text-white/80 text-base leading-relaxed">
                   {FEST_INFO.venue}
                 </p>
@@ -85,7 +83,7 @@ const Contact: React.FC = () => {
             <div className="flex items-start gap-4">
               <Mail className="w-8 h-8 text-indigo-400 flex-shrink-0" />
               <div>
-                <h4 className="text-lg font-black text-white mb-2">DATES</h4>
+                <h4 className="text-lg font-pixel text-white mb-2">DATES</h4>
                 <p className="text-white/80 text-xl font-bold">
                   {FEST_INFO.dates}
                 </p>
@@ -100,11 +98,18 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
-            <h4 className="text-lg font-black text-white mb-4">ORGANIZED BY</h4>
-            <p className="text-white/80 text-base">
-              Student Affairs Council (SAC)<br />
-              BVRIT Hyderabad College of Engineering for Women
-            </p>
+            <h4 className="text-lg font-pixel text-white mb-4">ORGANIZED BY</h4>
+            <div className="flex items-center gap-4">
+              <img 
+                src={sacLogo} 
+                alt="SAC Logo" 
+                className="w-32 h-32 object-contain"
+              />
+              <p className="text-white/80 text-base">
+                Student Affairs Council (SAC)<br />
+                BVRIT Hyderabad College of Engineering for Women
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

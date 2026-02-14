@@ -46,7 +46,7 @@ const App: React.FC = () => {
             scale: portalScale, 
             backgroundColor: realmBg
           }}
-          className="relative z-20 rounded-t-[3rem] md:rounded-t-[8rem] shadow-[0_-30px_100px_rgba(0,0,0,0.85)] transition-colors duration-1000 overflow-hidden"
+          className="relative z-20 -mt-[800px] md:-mt-[1500px] rounded-t-[3rem] md:rounded-t-[8rem] shadow-[0_-30px_100px_rgba(0,0,0,0.85)] transition-colors duration-1000 overflow-hidden"
           id="main-content"
         >
           {/* Chromatic Edge Reveal */}
@@ -115,20 +115,23 @@ const App: React.FC = () => {
                     <span className="relative z-10">EXPLORE EVENTS</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-fuchsia-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </a>
-                  <a 
-                    href="#contact"
-                    className="w-full md:w-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8 rounded-xl md:rounded-2xl lg:rounded-[2rem] border-2 md:border-4 border-white/30 text-white font-black text-base md:text-xl lg:text-2xl hover:bg-white/10 transition-all hover:scale-105 active:scale-95 text-center block"
-                  >
-                    GET IN TOUCH
-                  </a>
                 </div>
               </div>
             </motion.div>
           </section>
 
-          <Stats />
-          <Schedule />
-          <Sponsors />
+          <div className="mb-32 md:mb-48">
+            <Stats />
+          </div>
+          
+          <div className="mb-32 md:mb-48">
+            <Schedule />
+          </div>
+          
+          <div className="mb-32 md:mb-48">
+            <Sponsors />
+          </div>
+          
           <Contact />
         </motion.div>
       </main>

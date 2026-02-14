@@ -71,7 +71,7 @@ const BentoGrid: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center py-20"
         >
-          <h3 className="text-3xl md:text-5xl font-display font-black text-white mb-4">
+          <h3 className="text-3xl md:text-5xl font-pixel font-black text-white mb-4">
             No events found
           </h3>
           <p className="text-white/60 text-lg">
@@ -91,7 +91,7 @@ const BentoGrid: React.FC = () => {
         >
           <div>
             <span className="text-emerald-400 font-black uppercase tracking-[0.4em] md:tracking-[0.8em] text-[11px] md:text-xs block mb-2 md:mb-4">REWIRE REALITY</span>
-            <h2 className="text-4xl sm:text-6xl md:text-8xl font-display font-black text-white tracking-tighter leading-none">TECHNICAL <br/>FORCE</h2>
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-pixel font-black text-cyan-400 tracking-tighter leading-none">TECHNICAL <br/>FORCE</h2>
           </div>
           <p className="text-white/75 max-w-lg text-base md:text-xl font-medium leading-relaxed">
             The playground of the architect. From neural networks to carbon-fiber bots, witness the raw power of logic in motion.
@@ -125,7 +125,7 @@ const BentoGrid: React.FC = () => {
         >
           <div>
             <span className="text-orange-400 font-black uppercase tracking-[0.4em] md:tracking-[0.8em] text-[11px] md:text-xs block mb-2 md:mb-4">HEART OF THE FEST</span>
-            <h2 className="text-4xl sm:text-6xl md:text-8xl font-display font-black text-white tracking-tighter leading-none">CULTURAL <br/>EXPLOSION</h2>
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-pixel font-black text-pink-400 tracking-tighter leading-none">CULTURAL <br/>EXPLOSION</h2>
           </div>
           <p className="text-white/75 max-w-lg text-base md:text-xl font-medium leading-relaxed">
             Humanity unplugged. Dance until the neon fades and sing until the stars resonate with your pulse.
@@ -158,8 +158,8 @@ const BentoGrid: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-24 gap-6 md:gap-8 border-l-4 md:border-l-8 border-lime-400 pl-6 md:pl-12"
         >
           <div>
-            <span className="text-lime-400 font-black uppercase tracking-[0.4em] md:tracking-[0.8em] text-[11px] md:text-xs block mb-2 md:mb-4">EVOLVE YOUR SKILLS</span>
-            <h2 className="text-4xl sm:text-6xl md:text-8xl font-display font-black text-white tracking-tighter leading-none">ELITE <br/>WORKSHOPS</h2>
+            <span className="text-lime-400 font-pixel uppercase tracking-[0.4em] md:tracking-[0.8em] text-[11px] md:text-xs block mb-2 md:mb-4">EVOLVE YOUR SKILLS</span>
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-pixel font-black text-yellow-400 tracking-tighter leading-none">ELITE <br/>WORKSHOPS</h2>
           </div>
           <p className="text-white/75 max-w-lg text-base md:text-xl font-medium leading-relaxed">
             Direct downloads from industry titans. Don't just attend; upgrade your cognitive stack with practical expertise.

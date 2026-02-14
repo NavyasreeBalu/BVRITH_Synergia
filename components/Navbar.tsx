@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
           <img
             src={collegeLogo}
             alt="BVRIT Hyderabad"
-            className="h-[64px] lg:h-[80px] w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]"
+            className="h-[96px] lg:h-[120px] w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]"
             loading="eager"
             decoding="async"
           />
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
           <img
             src={sacLogo}
             alt="SAC"
-            className="h-[64px] lg:h-[80px] w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]"
+            className="h-[96px] lg:h-[120px] w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]"
             loading="eager"
             decoding="async"
           />
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
           <img
             src={collegeLogo}
             alt="BVRIT Hyderabad"
-            className="h-8 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
+            className="h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
             loading="eager"
             decoding="async"
           />
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
           <img
             src={sacLogo}
             alt="SAC"
-            className="h-8 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
+            className="h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
             loading="eager"
             decoding="async"
           />
