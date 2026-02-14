@@ -25,7 +25,7 @@ const Sponsors: React.FC = () => {
         <span className="text-amber-400 font-black uppercase tracking-[0.4em] md:tracking-[0.8em] text-[11px] md:text-xs block mb-4">
           POWERED BY
         </span>
-        <h2 className="text-5xl sm:text-6xl md:text-8xl font-display font-black text-white tracking-tighter leading-none">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-pixel font-black text-purple-400 tracking-tighter leading-none">
           OUR SPONSORS
         </h2>
       </motion.div>

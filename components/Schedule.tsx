@@ -56,7 +56,7 @@ const Schedule: React.FC = () => {
         <span className="text-fuchsia-400 font-black uppercase tracking-[0.4em] md:tracking-[0.8em] text-[11px] md:text-xs block mb-4">
           MARK YOUR CALENDAR
         </span>
-        <h2 className="text-5xl sm:text-6xl md:text-8xl font-display font-black text-white tracking-tighter leading-none mb-6">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-pixel font-black text-green-400 tracking-tighter leading-none mb-6">
           EVENT SCHEDULE
         </h2>
         <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto">

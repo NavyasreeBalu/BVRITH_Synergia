@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
         viewport={{ once: true }}
         className="text-center mb-20 md:mb-32"
       >
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-pixel font-black text-white tracking-tighter leading-none">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-pixel font-black text-orange-400 tracking-tighter leading-none">
           CONTACT US
         </h2>
       </motion.div>
