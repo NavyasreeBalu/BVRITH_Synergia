@@ -2,6 +2,7 @@ import festLogo from './assets/Logos/fest_logo.png';
 import HeroMosaic from './components/HeroMosaic';
 import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
+import Countdown from './components/Countdown';
 import Stats from './components/Stats';
 import Schedule from './components/Schedule';
 import Sponsors from './components/Sponsors';
@@ -77,10 +78,12 @@ const App: React.FC = () => {
                 decoding="async"
               />
               
-              <p className="text-white/90 max-w-4xl mx-auto text-xl md:text-2xl lg:text-3xl leading-relaxed font-black mb-16 md:mb-24 lg:mb-48 px-4 tracking-wide">
+              <p className="text-white/90 max-w-4xl mx-auto text-xl md:text-2xl lg:text-3xl leading-relaxed font-black mb-16 md:mb-24 px-4 tracking-wide">
                 Where innovation meets creativity.<br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">April 2-4, 2026</span>
               </p>
+
+              <Countdown />
             </motion.div>
 
             <BentoGrid />

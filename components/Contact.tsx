@@ -44,11 +44,11 @@ const Contact: React.FC = () => {
                     <Phone size={18} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="text-base md:text-lg font-black text-white mb-1">{person.name}</h4>
-                    <p className="text-xs text-white/60 uppercase tracking-wider mb-2">{person.role}</p>
+                    <h4 className="text-lg md:text-xl font-black text-white mb-1">{person.name}</h4>
+                    <p className="text-sm text-white/60 uppercase tracking-wider mb-2">{person.role}</p>
                     <a 
                       href={`tel:${person.phone}`}
-                      className="text-fuchsia-400 font-bold text-sm hover:text-fuchsia-300 transition-colors break-all"
+                      className="text-fuchsia-400 font-bold text-base hover:text-fuchsia-300 transition-colors break-all"
                     >
                       {person.phone}
                     </a>
