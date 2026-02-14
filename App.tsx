@@ -52,7 +52,7 @@ const App: React.FC = () => {
           {/* Chromatic Edge Reveal */}
           <div className="absolute top-0 inset-x-0 h-1 md:h-1.5 bg-gradient-to-r from-amber-400 via-fuchsia-500 to-indigo-500" />
           
-          <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-48 relative">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 pt-0 pb-20 md:pb-48 relative">
             {/* Massive Kinetic Typography Background - Slightly more opaque for visibility */}
             <motion.div 
               style={{ x: useTransform(scrollYProgress, [0.4, 1], [100, -800]) }}
