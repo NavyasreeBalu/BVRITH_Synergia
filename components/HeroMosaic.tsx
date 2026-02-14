@@ -109,8 +109,6 @@ const HeroMosaic: React.FC = () => {
       style={{
         gridRow: cell.r + 1,
         gridColumn: cell.c + 1,
-        x: useTransform(smoothScroll, [0, 0.15], [0, scatterX]),
-        y: useTransform(smoothScroll, [0, 0.15], [0, scatterY]),
         zIndex: phase === 'formed' ? 10 : 1,
       }}
       className="relative aspect-square group/tile cursor-pointer"
@@ -133,19 +131,8 @@ const HeroMosaic: React.FC = () => {
 
   return (
     <section className="relative h-[100vh] w-full">
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-slate-950">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-start justify-start pt-[200px] overflow-hidden bg-slate-950">
         
-        {/* Atmosphere */}
-        <div className="absolute inset-0 z-0">
-          <motion.div 
-            style={{ opacity: useTransform(smoothScroll, [0, 0.2], [0.4, 0]) }}
-            className="absolute inset-0"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.03),transparent_70%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:20px_20px] md:bg-[size:40px_40px]" />
-          </motion.div>
-        </div>
-
         {/* The Grid Title Container */}
         <motion.div 
           style={{ 
@@ -157,44 +144,14 @@ const HeroMosaic: React.FC = () => {
           className="relative z-10 w-full px-4 md:px-20 max-w-full"
         >
           <div className="relative">
-            {/* Logos Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={phase === 'formed' ? { opacity: 1, y: 0 } : { opacity: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="absolute left-0 right-0 -top-[96px] sm:-top-[80px] md:-top-[64px] grid grid-cols-3 items-center gap-4 md:gap-8 pointer-events-none"
-            >
-            <div className="flex justify-center col-span-3">
-              <img
-                src={festLogo}
-                alt="Synergia 2026"
-                className="w-[260px] sm:w-[380px] md:w-[520px] lg:w-[640px] h-[60px] sm:h-[70px] md:h-[90px] lg:h-[110px] object-contain drop-shadow-[0_0_40px_rgba(255,58,167,0.6)]"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-            </motion.div>
-
             {/* Main Typography Grid */}
-            <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-28 grid grid-cols-[repeat(36,minmax(0,1fr))] gap-[1px] md:gap-[2px] lg:gap-[3px] mx-auto pointer-events-auto max-w-[90vw]">
+            <div className="pt-2 sm:pt-4 md:pt-6 lg:pt-8 grid grid-cols-[repeat(36,minmax(0,1fr))] gap-[1px] md:gap-[2px] lg:gap-[3px] mx-auto pointer-events-auto max-w-[90vw]">
               {renderedTiles}
             </div>
           </div>
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          style={{ opacity: useTransform(smoothScroll, [0, 0.05], [1, 0]) }}
-          className="absolute bottom-12 md:bottom-16 flex flex-col items-center gap-4 md:gap-6 pointer-events-none"
-        >
-          <div className="px-5 md:px-8 py-2 md:py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">
-            <Zap className="w-3.5 h-3.5 md:w-5 h-5 text-amber-400" />
-            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-white">Scroll to Explore</span>
-          </div>
-          <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 2.5 }}>
-            <ChevronDown className="w-5 h-5 md:w-8 h-8 text-white/10" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

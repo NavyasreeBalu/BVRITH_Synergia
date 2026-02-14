@@ -31,32 +31,32 @@ const EventSearch: React.FC<EventSearchProps> = ({
     >
       {/* Search Bar */}
       <div className="relative mb-6 md:mb-8">
-        <Search className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-5 h-5 md:w-6 md:h-6 text-fuchsia-400" />
+        <Search className="absolute left-6 md:left-8 top-1/2 -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 text-fuchsia-400" />
         <input
           type="text"
           placeholder="Search events by name, host, or description..."
           value={searchQuery}
           onChange={(e) => onSearch(e.target.value)}
-          className="w-full pl-12 md:pl-16 pr-12 md:pr-16 py-4 sm:py-5 md:py-7 rounded-2xl md:rounded-3xl bg-white/10 border-2 border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:border-fuchsia-400 focus:bg-white/15 transition-all text-sm sm:text-base md:text-lg font-medium shadow-xl"
+          className="w-full pl-16 md:pl-20 pr-16 md:pr-20 py-6 sm:py-7 md:py-9 rounded-2xl md:rounded-3xl bg-white/10 border-2 border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:border-fuchsia-400 focus:bg-white/15 transition-all text-base sm:text-lg md:text-xl font-medium shadow-xl"
         />
         {searchQuery && (
           <button
             onClick={() => onSearch('')}
-            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
+            className="absolute right-6 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
             aria-label="Clear search"
           >
-            <X className="w-4 h-4 text-white" />
+            <X className="w-5 h-5 text-white" />
           </button>
         )}
       </div>
 
       {/* Category Filters */}
-      <div className="flex flex-wrap gap-3 md:gap-4 justify-center">
+      <div className="flex flex-wrap gap-4 md:gap-5 justify-center">
         {categories.map((cat) => (
           <button
             key={cat.value}
             onClick={() => onFilterCategory(cat.value as EventCategory | 'all')}
-            className={`px-5 sm:px-6 md:px-10 py-2.5 sm:py-3 md:py-5 rounded-xl md:rounded-2xl font-black text-xs sm:text-sm md:text-base uppercase tracking-wider transition-all ${
+            className={`px-8 sm:px-10 md:px-14 py-4 sm:py-5 md:py-6 rounded-xl md:rounded-2xl font-black text-sm sm:text-base md:text-lg uppercase tracking-wider transition-all ${
               activeCategory === cat.value
                 ? 'bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white shadow-2xl shadow-fuchsia-500/50 scale-105'
                 : 'bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/30 hover:scale-105'

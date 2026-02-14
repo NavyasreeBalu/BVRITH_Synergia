@@ -1,4 +1,4 @@
-import React from 'react';
+import festLogo from './assets/Logos/fest_logo.png';
 import HeroMosaic from './components/HeroMosaic';
 import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
@@ -46,21 +46,13 @@ const App: React.FC = () => {
             scale: portalScale, 
             backgroundColor: realmBg
           }}
-          className="relative z-20 -mt-[800px] md:-mt-[1500px] rounded-t-[3rem] md:rounded-t-[8rem] shadow-[0_-30px_100px_rgba(0,0,0,0.85)] transition-colors duration-1000 overflow-hidden"
+          className="relative z-20 -mt-[900px] md:-mt-[1600px] rounded-t-[3rem] md:rounded-t-[8rem] shadow-[0_-30px_100px_rgba(0,0,0,0.85)] transition-colors duration-1000 overflow-hidden"
           id="main-content"
         >
           {/* Chromatic Edge Reveal */}
           <div className="absolute top-0 inset-x-0 h-1 md:h-1.5 bg-gradient-to-r from-amber-400 via-fuchsia-500 to-indigo-500" />
           
           <div className="max-w-7xl mx-auto px-4 md:px-6 pt-0 pb-20 md:pb-48 relative">
-            {/* Massive Kinetic Typography Background - Slightly more opaque for visibility */}
-            <motion.div 
-              style={{ x: useTransform(scrollYProgress, [0.4, 1], [100, -800]) }}
-              className="absolute top-20 md:top-40 left-0 text-[35vw] md:text-[25vw] font-black text-white/[0.08] whitespace-nowrap pointer-events-none select-none italic tracking-tighter"
-            >
-              SYNERGY INNOVATION FUTURE
-            </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -74,16 +66,20 @@ const App: React.FC = () => {
                   <div className="w-2 h-2 rounded-full bg-fuchsia-400" />
                   <div className="w-2 h-2 rounded-full bg-indigo-400" />
                 </div>
-                <span className="text-white text-[10px] md:text-[12px] font-black tracking-[0.3em] md:tracking-[0.5em] uppercase whitespace-nowrap">BVRIT Hyderabad presents</span>
+                <span className="text-white text-sm md:text-base lg:text-lg font-black tracking-[0.3em] md:tracking-[0.5em] uppercase whitespace-nowrap">BVRIT Hyderabad presents</span>
               </div>
 
-              <h2 className="text-5xl sm:text-7xl md:text-[12rem] font-display font-black text-white mb-10 md:mb-20 tracking-tighter leading-[0.85] md:leading-[0.75]">
-                SYNERGIA <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">2K26.</span>
-              </h2>
+              <img 
+                src={festLogo} 
+                alt="Synergia 2026" 
+                className="w-[80vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] h-auto mx-auto mb-10 md:mb-20 drop-shadow-[0_0_60px_rgba(217,70,239,0.6)]"
+                loading="eager"
+                decoding="async"
+              />
               
-              <p className="text-white/90 max-w-4xl mx-auto text-base md:text-lg lg:text-3xl leading-relaxed font-light mb-16 md:mb-24 lg:mb-48 px-4">
-                A three-day convergence of innovation, technology, and culture at BVRIT Hyderabad College of Engineering for Women. April 2-4, 2026.
+              <p className="text-white/90 max-w-4xl mx-auto text-xl md:text-2xl lg:text-3xl leading-relaxed font-black mb-16 md:mb-24 lg:mb-48 px-4 tracking-wide">
+                Where innovation meets creativity.<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">April 2-4, 2026</span>
               </p>
             </motion.div>
 
