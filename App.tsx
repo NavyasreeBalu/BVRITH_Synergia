@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const realmBg = useTransform(
     scrollYProgress, 
     [0.3, 0.5, 0.7, 0.9], 
-    ["#1e1b4b", "#312e81", "#701a75", "#020617"] // Adjusted for slightly higher luminance in transition phases
+    ["#1e1b4b", "#312e81", "#701a75", "#312e81"] // Dark indigo to purple, not too bright
   );
 
   return (
@@ -97,21 +97,9 @@ const App: React.FC = () => {
               
               <div className="relative z-10">
                 <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-[8rem] font-display font-black text-white mb-6 md:mb-10 lg:mb-12 tracking-tighter leading-none">
-                  WHERE <span className="text-fuchsia-400 italic">INNOVATION</span><br/>
-                  MEETS <span className="text-amber-400 italic">PASSION</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">DON'T WAIT!</span><br/>
+                  BE PART OF SYNERGIA
                 </h3>
-                <p className="text-white/80 text-base md:text-xl lg:text-3xl leading-relaxed max-w-4xl mx-auto mb-8 md:mb-12 lg:mb-16 font-light px-4">
-                  Three days. 20+ events. Endless possibilities. Join us at BVRIT Hyderabad for a celebration of technology, culture, and creativity that will ignite your potential.
-                </p>
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-10 px-4">
-                  <a 
-                    href="#technical"
-                    className="group relative w-full md:w-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8 rounded-xl md:rounded-2xl lg:rounded-[2rem] bg-white text-slate-950 font-black text-base md:text-xl lg:text-2xl overflow-hidden transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)] active:scale-95 text-center"
-                  >
-                    <span className="relative z-10">EXPLORE EVENTS</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-fuchsia-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                  </a>
-                </div>
               </div>
             </motion.div>
           </section>
@@ -129,10 +117,11 @@ const App: React.FC = () => {
           </div>
           
           <Contact />
+          
+          <Footer />
         </motion.div>
       </main>
 
-      <Footer />
       <BackToTop />
     </div>
   );

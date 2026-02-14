@@ -19,43 +19,44 @@ const Contact: React.FC = () => {
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20">
-        {/* SAC Members */}
+        {/* SAC Members - 2x5 Grid */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="space-y-8"
         >
           <h3 className="text-2xl md:text-4xl font-pixel font-black text-white mb-8 md:mb-12">
             Student Affairs Council
           </h3>
           
-          {CONTACT_INFO.map((person, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group p-5 sm:p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-fuchsia-400/50 transition-all hover:bg-white/10"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-fuchsia-400 to-indigo-500 flex items-center justify-center flex-shrink-0">
-                  <Phone size={20} className="text-white" />
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
+            {CONTACT_INFO.map((person, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group p-4 sm:p-5 md:p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-fuchsia-400/50 transition-all hover:bg-white/10"
+              >
+                <div className="flex flex-col gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-400 to-indigo-500 flex items-center justify-center">
+                    <Phone size={18} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-base md:text-lg font-black text-white mb-1">{person.name}</h4>
+                    <p className="text-xs text-white/60 uppercase tracking-wider mb-2">{person.role}</p>
+                    <a 
+                      href={`tel:${person.phone}`}
+                      className="text-fuchsia-400 font-bold text-sm hover:text-fuchsia-300 transition-colors break-all"
+                    >
+                      {person.phone}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-xl md:text-2xl font-black text-white mb-1">{person.name}</h4>
-                  <p className="text-sm text-white/60 uppercase tracking-wider mb-3">{person.role}</p>
-                  <a 
-                    href={`tel:${person.phone}`}
-                    className="text-fuchsia-400 font-bold text-lg hover:text-fuchsia-300 transition-colors"
-                  >
-                    {person.phone}
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Venue Info */}
@@ -97,7 +98,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
+          <div className="p-8 rounded-3xl bg-white/5 border border-white/10 mt-8">
             <h4 className="text-lg font-pixel text-white mb-4">ORGANIZED BY</h4>
             <div className="flex items-center gap-4">
               <img 
