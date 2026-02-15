@@ -37,7 +37,7 @@ const EventSearch: React.FC<EventSearchProps> = ({
           placeholder="Search events by name, host, or description..."
           value={searchQuery}
           onChange={(e) => onSearch(e.target.value)}
-          className="w-full pl-16 md:pl-20 pr-16 md:pr-20 py-6 sm:py-7 md:py-9 rounded-2xl md:rounded-3xl bg-white/10 border-2 border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:border-fuchsia-400 focus:bg-white/15 transition-all text-base sm:text-lg md:text-xl font-medium shadow-xl"
+          className="w-full pl-16 md:pl-20 pr-16 md:pr-20 py-5 sm:py-6 md:py-7 rounded-2xl bg-white/10 border-2 border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:border-fuchsia-400 focus:bg-white/15 transition-all text-base sm:text-lg md:text-xl font-medium shadow-xl"
         />
         {searchQuery && (
           <button
@@ -56,7 +56,7 @@ const EventSearch: React.FC<EventSearchProps> = ({
           <button
             key={cat.value}
             onClick={() => onFilterCategory(cat.value as EventCategory | 'all')}
-            className={`px-8 sm:px-10 md:px-14 py-4 sm:py-5 md:py-6 rounded-xl md:rounded-2xl font-black text-sm sm:text-base md:text-lg uppercase tracking-wider transition-all ${
+            className={`px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-4 rounded-2xl font-semibold text-sm sm:text-base uppercase tracking-[0.08em] min-h-12 transition-all ${
               activeCategory === cat.value
                 ? 'bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white shadow-2xl shadow-fuchsia-500/50 scale-105'
                 : 'bg-white/10 border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/30 hover:scale-105'

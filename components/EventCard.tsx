@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
 import { FestEvent } from '../types';
@@ -65,83 +64,81 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         tabIndex={0}
         role="button"
         aria-label={`View details for ${event.title}`}
-        style={{ transformStyle: "preserve-3d", transform }}
+        style={{ transformStyle: 'preserve-3d', transform }}
         className="relative w-full h-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-fuchsia-400 focus:ring-offset-2 focus:ring-offset-slate-950 rounded-[2rem] md:rounded-[3.5rem]"
       >
-      <div 
-        className={`relative h-full flex flex-col bg-slate-900/60 backdrop-blur-3xl rounded-[2rem] md:rounded-[3.5rem] border border-white/10 overflow-hidden transition-all duration-700 group-hover:border-white/30 shadow-2xl`}
-      >
-        {/* Floating Category Badge */}
-        <div className="absolute top-6 left-6 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20">
-          <Activity size={10} className={`${currentTheme.text} animate-pulse`} />
-          <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.1em] text-white">{event.category}</span>
-        </div>
+        <div className="relative h-full flex flex-col bg-slate-900/60 backdrop-blur-3xl rounded-[2rem] md:rounded-[3.5rem] border border-white/10 overflow-hidden transition-all duration-700 group-hover:border-white/30 shadow-2xl">
+          {/* Floating Category Badge */}
+          <div className="absolute top-6 left-6 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20">
+            <Activity size={10} className={`${currentTheme.text} animate-pulse`} />
+            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.1em] text-white">{event.category}</span>
+          </div>
 
-        <div className="aspect-[4/3] w-full overflow-hidden relative">
-          <motion.img 
-            src={event.image} 
-            alt={event.title} 
-            className="w-full h-full object-cover group-hover:scale-110 md:group-hover:scale-125 transition-transform duration-1000"
-            style={{ translateZ: "20px" }}
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-          
-          <div className="absolute bottom-6 right-6 translate-z-40">
-             <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[1.5rem] ${currentTheme.accent} flex items-center justify-center text-slate-950 rotate-[-8deg] group-hover:rotate-0 transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}>
+          <div className="aspect-[4/3] w-full overflow-hidden relative">
+            <motion.img
+              src={event.image}
+              alt={event.title}
+              className="w-full h-full object-cover group-hover:scale-110 md:group-hover:scale-125 transition-transform duration-1000"
+              style={{ translateZ: '20px' }}
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+
+            <div className="absolute bottom-6 right-6 translate-z-40">
+              <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[1.5rem] ${currentTheme.accent} flex items-center justify-center text-slate-950 rotate-[-8deg] group-hover:rotate-0 transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}>
                 <ArrowUpRight size={22} className="md:size-[28px]" />
-             </div>
-          </div>
-        </div>
-
-        <div className="p-6 sm:p-8 md:p-12 flex flex-col flex-grow translate-z-30">
-          <div className="flex items-center gap-4 mb-6 md:mb-8">
-            <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tighter">{event.fee}</span>
-            <div className={`h-1.5 flex-grow rounded-full ${currentTheme.accent} opacity-30`} />
-          </div>
-
-          <h3 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white mb-6 md:mb-8 leading-[0.9] tracking-tight transition-all">
-            {event.title}
-          </h3>
-          
-          <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-8 md:mb-12 font-medium">
-            {event.description}
-          </p>
-
-          <div className="mt-auto pt-8 border-t border-white/10 flex items-center justify-between">
-            <div className="flex items-center gap-3 text-[10px] sm:text-[11px] font-black text-white/70 tracking-[0.1em] uppercase">
-              <Calendar className={`w-4 h-4 ${currentTheme.text}`} />
-              {event.date}
-            </div>
-            <div className="flex -space-x-3">
-              {[1, 2, 3].map(i => (
-                <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center overflow-hidden">
-                   <img src={`https://i.pravatar.cc/100?u=${event.id}-${i}`} alt="user" />
-                </div>
-              ))}
-              <div className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center text-[8px] font-black text-white">
-                <Users size={10} />
               </div>
             </div>
           </div>
 
-          {event.hostedBy && (
-            <div className="text-[11px] sm:text-xs font-bold text-white/70 uppercase tracking-wider text-center mt-4">
-              By {event.hostedBy}
+          <div className="p-6 sm:p-8 md:p-12 flex flex-col flex-grow translate-z-30">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
+              <span className="text-lg sm:text-xl md:text-2xl font-black text-white tracking-tighter">{event.fee}</span>
+              <div className={`h-1.5 flex-grow rounded-full ${currentTheme.accent} opacity-30`} />
             </div>
-          )}
+
+            <h3 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white mb-6 md:mb-8 leading-[0.9] tracking-tight transition-all">
+              {event.title}
+            </h3>
+
+            <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-8 md:mb-12 font-medium">
+              {event.description}
+            </p>
+
+            <div className="mt-auto pt-8 border-t border-white/10 flex items-center justify-between">
+              <div className="flex items-center gap-3 text-sm sm:text-base md:text-lg font-black text-white/85 tracking-[0.08em] uppercase">
+                <Calendar className={`w-4 h-4 ${currentTheme.text}`} />
+                {event.date}
+              </div>
+              <div className="flex -space-x-3">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center overflow-hidden">
+                    <img src={`https://i.pravatar.cc/100?u=${event.id}-${i}`} alt="user" />
+                  </div>
+                ))}
+                <div className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center text-[8px] font-black text-white">
+                  <Users size={10} />
+                </div>
+              </div>
+            </div>
+
+            {event.hostedBy && (
+              <div className="text-sm sm:text-base font-bold text-white/80 uppercase tracking-wider text-center mt-4">
+                By {event.hostedBy}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Glow - Optimized and brightened */}
-      <div 
-        className="hidden md:block absolute -inset-10 opacity-0 group-hover:opacity-20 blur-[80px] transition-opacity duration-1000 -z-10" 
-        style={{ background: currentTheme.glow }}
-      />
-    </motion.div>
+        {/* Glow - Optimized and brightened */}
+        <div
+          className="hidden md:block absolute -inset-10 opacity-0 group-hover:opacity-20 blur-[80px] transition-opacity duration-1000 -z-10"
+          style={{ background: currentTheme.glow }}
+        />
+      </motion.div>
 
-    <EventModal event={event} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <EventModal event={event} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

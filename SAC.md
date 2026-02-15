@@ -10,21 +10,21 @@ To empower students through collaborative events that promote creativity, techni
 
 ## SAC Leadership Team
 
-### Ms Khyathi
+### Sarah
 **President, SAC**  
-Phone: +91 7993189822
+Phone: +91 9100785359
 
 Leading the council with vision and dedication, ensuring Synergia 2026 becomes an unforgettable experience for all participants.
 
-### Ms Raina
+### Shanmukhi
 **Vice President, SAC**  
-Phone: +91 7991898822
+Phone: +91 8555062174
 
 Supporting organizational excellence and coordinating between various clubs and committees to deliver seamless event execution.
 
-### Ms Padmini
+### Sahithi
 **Treasurer, SAC**  
-Phone: +91 7893590370
+Phone: +91 9100180208
 
 Managing financial operations, sponsorships, and ensuring transparent resource allocation for all Synergia events.
 
@@ -38,7 +38,7 @@ Managing financial operations, sponsorships, and ensuring transparent resource a
 
 ## Synergia 2026 Overview
 
-**Dates**: April 2-4, 2026  
+**Dates**: March 31 - April 2, 2026  
 **Venue**: BVRIT Hyderabad College of Engineering for Women  
 **Open to**: All colleges (first two days)
 

@@ -64,30 +64,37 @@ const Navbar: React.FC = () => {
           />
         </div>
 
-        <div className="md:hidden flex flex-wrap items-center justify-center gap-x-3 gap-y-2 px-2">
-          <img
-            src={collegeLogo}
-            alt="BVRIT Hyderabad"
-            className="h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
-            loading="eager"
-            decoding="async"
-          />
-          {navItems.map((item) => (
-            <a 
-              key={item.name} 
-              href={item.href}
-              className="text-[10px] xs:text-[11px] uppercase tracking-[0.12em] font-pixel text-[#ff3aa7] hover:text-white focus:text-white focus:outline-none transition-colors whitespace-nowrap"
-            >
-              {item.name}
-            </a>
-          ))}
-          <img
-            src={sacLogo}
-            alt="SAC"
-            className="h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
-            loading="eager"
-            decoding="async"
-          />
+        <div className="md:hidden px-2">
+          <div className="flex items-center justify-between mb-3">
+            <img
+              src={collegeLogo}
+              alt="BVRIT Hyderabad"
+              className="h-11 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
+              loading="eager"
+              decoding="async"
+            />
+            <span className="text-white/90 text-xs font-semibold uppercase tracking-[0.12em]">
+              Synergia 2026
+            </span>
+            <img
+              src={sacLogo}
+              alt="SAC"
+              className="h-11 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.3)]"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {navItems.map((item) => (
+              <a 
+                key={item.name} 
+                href={item.href}
+                className="min-h-10 flex items-center justify-center px-2 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold uppercase tracking-[0.08em] text-[#ff69bf] hover:text-white hover:bg-white/15 focus:text-white focus:outline-none transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>

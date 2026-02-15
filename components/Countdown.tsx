@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Countdown: React.FC = () => {
-  const targetDate = new Date('2026-04-02T00:00:00').getTime();
+  const targetDate = new Date('2026-03-31T00:00:00').getTime();
   
   const [timeLeft, setTimeLeft] = useState({
     days: 0,

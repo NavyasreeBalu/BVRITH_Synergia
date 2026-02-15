@@ -6,8 +6,8 @@ const Schedule: React.FC = () => {
   const schedule = [
     {
       day: 'Day 01',
-      date: 'April 2, 2026',
-      dayName: 'Wednesday',
+      date: 'March 31, 2026',
+      dayName: 'Tuesday',
       events: [
         { time: '9:00 AM', title: 'Registration Opens', icon: '🎫' },
         { time: '10:00 AM', title: 'Opening Ceremony', icon: '🎭' },
@@ -19,8 +19,8 @@ const Schedule: React.FC = () => {
     },
     {
       day: 'Day 02',
-      date: 'April 3, 2026',
-      dayName: 'Thursday',
+      date: 'April 1, 2026',
+      dayName: 'Wednesday',
       events: [
         { time: '9:00 AM', title: 'Day 2 Kickoff', icon: '🚀' },
         { time: '10:00 AM', title: 'Cultural Events Begin', icon: '🎨' },
@@ -32,8 +32,8 @@ const Schedule: React.FC = () => {
     },
     {
       day: 'Day 03',
-      date: 'April 4, 2026',
-      dayName: 'Friday',
+      date: 'April 2, 2026',
+      dayName: 'Thursday',
       events: [
         { time: '9:00 AM', title: 'Final Day Events', icon: '⚡' },
         { time: '11:00 AM', title: 'Grand Finale Preparations', icon: '🎬' },

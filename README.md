@@ -61,7 +61,7 @@ All events are in `constants.ts`. Edit the `EVENTS_DATA` array:
   id: 'unique-id',
   title: 'Event Name',
   category: EventCategory.TECHNICAL, // or CULTURAL or WORKSHOPS
-  date: 'April 2, 2026',
+  date: 'March 31, 2026',
   fee: '₹200',
   description: 'Event description...',
   image: 'https://your-image-url.jpg',

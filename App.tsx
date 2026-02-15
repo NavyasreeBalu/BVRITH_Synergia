@@ -80,7 +80,7 @@ const App: React.FC = () => {
               
               <p className="text-white/90 max-w-4xl mx-auto text-xl md:text-2xl lg:text-3xl leading-relaxed font-black mb-16 md:mb-24 px-4 tracking-wide">
                 Where innovation meets creativity.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">April 2-4, 2026</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-fuchsia-400 to-indigo-400">March 31 - April 2, 2026</span>
               </p>
 
               <Countdown />
