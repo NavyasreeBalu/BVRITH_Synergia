@@ -3,7 +3,45 @@ import React, { useMemo, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { SYNERGIA_GRID } from '../constants';
 import festLogo from '../assets/Logos/fest_logo.png';
+import sacLogo from '../assets/Logos/sac_logo.png';
 import { ChevronDown, Sparkles, Zap } from 'lucide-react';
+
+// Import all event images
+import cult1 from '../assets/Cultural/cult1.png';
+import cult2 from '../assets/Cultural/cult2.png';
+import cult3 from '../assets/Cultural/cult3.png';
+import cult4 from '../assets/Cultural/cult4.png';
+import cult5 from '../assets/Cultural/cult5.png';
+import tech1 from '../assets/Technical/tech1.png';
+import tech2 from '../assets/Technical/tech2.png';
+import tech3 from '../assets/Technical/tech3.png';
+import tech4 from '../assets/Technical/tech4.png';
+import tech5 from '../assets/Technical/tech5.png';
+import tech6 from '../assets/Technical/tech6.png';
+import tech7 from '../assets/Technical/tech7.png';
+import tech8 from '../assets/Technical/tech8.png';
+import tech9 from '../assets/Technical/tech9.jpg';
+import tech10 from '../assets/Technical/tech10.png';
+import tech11 from '../assets/Technical/tech11.jpg';
+import tech12 from '../assets/Technical/tech12.png';
+import ws1 from '../assets/Workshop/WS1.png';
+import ws2 from '../assets/Workshop/WS2.png';
+import ws3 from '../assets/Workshop/WS3.jpg';
+import sdg from '../assets/sdg.png';
+import img1 from '../assets/Logos/img1.jpeg';
+import img2 from '../assets/Logos/img2.jpeg';
+import img3 from '../assets/Logos/img3.jpeg';
+
+
+const MOSAIC_IMAGES = [
+  cult1, cult2, cult3, cult4, cult5,
+  tech1, tech2, tech3, tech4, tech5, tech6, tech7, tech8, tech9, tech10, tech11, tech12,
+  ws1, ws2, ws3, sdg,img1, img2, img3
+];
+
+// Images specifically for letter 'E'
+const E_LETTER_IMAGES = [sacLogo, img1, img2, img3, festLogo];
+
 
 const HeroMosaic: React.FC = () => {
   const [phase, setPhase] = useState<'dump' | 'collecting' | 'formed'>('dump');
@@ -75,7 +113,17 @@ const HeroMosaic: React.FC = () => {
     });
   }, [isMobile]);
 
-  const renderedTiles = tiles.map(({ cell, index, scatterX, scatterY, vibrantColors }) => (
+  const renderedTiles = tiles.map(({ cell, index, scatterX, scatterY, vibrantColors }) => {
+    // Check if this cell is part of letter 'E' (columns 16-19)
+    const isLetterE = cell.c >= 16 && cell.c <= 19;
+    const imageSource = isLetterE 
+      ? E_LETTER_IMAGES[index % E_LETTER_IMAGES.length]
+      : MOSAIC_IMAGES[index % MOSAIC_IMAGES.length];
+    
+    // Check if it's a logo position (for special styling)
+    const isLogo = imageSource === festLogo || imageSource === sacLogo || imageSource === img1 || imageSource === img2 || imageSource === img3;
+    
+    return (
     <motion.div
       key={cell.id}
       initial={{ scale: 0, opacity: 0, rotate: (Math.random() - 0.5) * 360 }}
@@ -115,19 +163,22 @@ const HeroMosaic: React.FC = () => {
     >
       <div className="w-full h-full overflow-hidden rounded-[1px] md:rounded-[4px] border border-white/20 relative shadow-2xl transition-all duration-300 group-hover/tile:border-white/50">
         <img 
-          src={`https://picsum.photos/id/${(index % 100) + 10}/300/300`} 
+          src={imageSource} 
           alt={`Synergia fest mosaic tile ${index + 1}`}
-          className="w-full h-full object-cover grayscale-[0.2] group-hover/tile:grayscale-0 transition-all duration-500"
+          className={`w-full h-full object-cover transition-all duration-500 ${isLogo ? 'p-1' : 'grayscale-[0.2] group-hover/tile:grayscale-0'}`}
           loading="lazy"
           decoding="async"
         />
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-40 group-hover/tile:opacity-0 transition-opacity duration-300" 
-          style={{ backgroundColor: vibrantColors[cell.colorIndex], mixBlendMode: 'overlay' }}
-        />
+        {!isLogo && (
+          <div 
+            className="absolute inset-0 pointer-events-none opacity-40 group-hover/tile:opacity-0 transition-opacity duration-300" 
+            style={{ backgroundColor: vibrantColors[cell.colorIndex], mixBlendMode: 'overlay' }}
+          />
+        )}
       </div>
     </motion.div>
-  ));
+  )});
+
 
   return (
     <section className="relative h-[100vh] w-full">
